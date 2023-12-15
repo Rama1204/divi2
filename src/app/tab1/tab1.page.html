@@ -1,0 +1,52 @@
+<ion-header [translucent]="true"> 
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+    <img src="https://i.imgur.com/cmOK0z7.png" alt="coin">
+    <p class="contador"><b> {{ contador }}</b></p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <br><br>
+  <br><br><br>
+  
+  <ion-item>
+    <ion-label label-placement="floating" fill="outline" shape="round" position="stacked">Moneda de origen:</ion-label>
+    <ion-select  [(ngModel)]="monedaOrigen"><br>
+      <ion-select-option *ngFor="let moneda of monedasOrigen" [value]="moneda"><br>
+        {{ moneda.nombre }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br> 
+
+  <ion-item>
+    <ion-label position="stacked">Monto a convertir:</ion-label>
+    <ion-input type="number" [(ngModel)]="monto"></ion-input>
+  </ion-item><br> 
+  <ion-item> 
+    <ion-label position="stacked">Moneda de Destino:</ion-label>
+    <ion-select [(ngModel)]="monedaDestino">
+      <ion-select-option *ngFor="let moneda of monedasDestino" [value]="moneda">
+        {{ moneda.nombre }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  
+  <br> <br>  <br>  
+  <ion-button expand="block" shape="round" (click)="realizarConversion()" [ngClass]="{'boton-rojo': contador === 0}" (click)="disminuirContador(1)"><b>Realizar Conversión</b></ion-button>
+  <br> <br> <br>  
+  
+<ion-item>
+<ion-textarea style="width: 100%;" class="resultado-container" [readonly]="true" label="RESULTADO =  " value="{{ resultado && simboloMonedaDestino ? resultado + ' ' + simboloMonedaDestino : '' }}" ></ion-textarea>
+</ion-item>
+
+</ion-content>

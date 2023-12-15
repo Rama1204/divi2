@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Wallet </ion-title>
+    <img src="https://i.imgur.com/cmOK0z7.png" alt="coin">
+    <p class="contador"><b> {{ contador }}</b></p>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Wallet</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="contenedor-imagen">
+  <img src="https://i.imgur.com/cmOK0z7.png" alt="Cantidad de monedas" class="img-reducida">
+  </div> 
+
+  <div class="saldo">
+  <ion-item>
+    <ion-label  position="center">Saldo actual</ion-label>
+    <p class="contador"><b> {{ contador }}</b></p>
+  </ion-item>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title><b>Añadir coins</b></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list> 
+        
+        <ion-button id="present-alert 1" color="light"> 
+          <ion-label> Divicoin   </ion-label>
+          <img alt="Divicoin" src="https://i.imgur.com/rVQACEJ.png" width="40%"/>
+        </ion-button>
+        <ion-alert
+         trigger="present-alert 1"
+         header="Divicoin"
+        message="¿Estas seguro que quieres comprar 1 Divicoin a $1?"
+        [buttons]="alertButtons" (click)="oferta1()"
+         ></ion-alert>
+         
+         <ion-button id="present-alert 2" color="light">
+         <ion-label> Pila de Divicoins </ion-label>
+            <img alt="Pila de Divicoins" src="https://i.imgur.com/uyBgc49.png" width="40%" />
+          </ion-button>
+          <ion-alert
+           trigger="present-alert 2"
+           header="Pila de Divicoins"
+          message="¿Estas seguro que quieres comprar 10 Divicoins a $8?"
+        [buttons]="alertButtons" (click)="oferta2()"
+           ></ion-alert>
+          
+           <ion-button id="present-alert 3" color="light">
+            <ion-label> Saco de Divicoins </ion-label>
+            <img alt="Bolsa de Divicoins" src="https://i.imgur.com/VHUQ2Hb.png" width="40%" />
+          </ion-button>
+          <ion-alert
+           trigger="present-alert 3"
+           header="Saco de Divicoins"
+          message="¿Estas seguro que quieres comprar 25 Divicoins a $20?"
+          [buttons]="alertButtons"  (click)="oferta3()"
+           ></ion-alert>
+  
+           <ion-button id="present-alert 4" color="light">
+          <ion-label> Caretilla de Divicoins </ion-label>
+            <img alt="Caretilla de Divicoins" src="https://i.imgur.com/9TH1sPU.png" width="40%" />
+          </ion-button>
+          <ion-alert
+           trigger="present-alert 4"
+           header="Caretilla de Divicoins"
+          message="¿Estas seguro que quieres comprar 50 Divicoins a $40?"
+          [buttons]="alertButtons"  (click)="oferta4()"
+           ></ion-alert>
+    
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

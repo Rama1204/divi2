@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Historial
+    </ion-title>
+    <img src="https://i.imgur.com/cmOK0z7.png" alt="coin">
+    <p class="contador"><b> {{ contador }}</b></p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Historial</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title><b>Historial</b></ion-card-title>
+      <ion-card-subtitle>Últimos cambios</ion-card-subtitle> 
+    </ion-card-header>
+      <ion-card-content>
+        <ion-list *ngIf="historial && historial.length > 0">
+          <ion-item *ngFor="let conversion of historial">
+            <ion-thumbnail slot="start">
+            <img alt="bandera" src="{{conversion.monedaDestino.imagenUrl}}" />
+            </ion-thumbnail>
+            <ion-label> {{conversion.monedaOrigen.nombre}} {{conversion.monedaOrigen.simbolo}} {{conversion.monto}} <br> a {{ conversion.monedaDestino.nombre }} {{conversion.monedaDestino.simbolo}} {{ conversion.resultado }}</ion-label>
+            </ion-item>
+            </ion-list>
+            <ion-note *ngIf="!historial || historial.length === 0">
+              No hay conversiones en el historial.
+            </ion-note>
+      </ion-card-content>
+      <ion-button shape="round" (click)="vaciarHistorial()"><b>Vaciar historial</b></ion-button><br>
+  </ion-card>
+</ion-content>
